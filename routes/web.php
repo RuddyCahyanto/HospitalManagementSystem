@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('data-kelurahan', 'DataKelurahan\Controllers\DataKelurahanController');
+Route::resource('registrasi-pasien', 'RegistrasiPasien\Controllers\RegistrasiPasienController');
