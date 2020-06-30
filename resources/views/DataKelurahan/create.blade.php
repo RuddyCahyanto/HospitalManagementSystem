@@ -6,8 +6,8 @@
   </div>
 
   {{-- return to method store at KelurahansController while submit button clicked --}}
-  {!! Form::open(['route' => 'DataKelurahans.store']) !!}
-    @include('DataKelurahans.form')
+  {!! Form::open(['route' => 'data-kelurahan.store']) !!}
+    @include('DataKelurahan.form')
   {!! Form::close() !!}
 
 </div>

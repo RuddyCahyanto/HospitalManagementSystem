@@ -6,8 +6,8 @@
   </div>
 
   {{-- return to method update at KelurahansController while submit button clicked --}}
-  {!! Form::model($kelurahan, ['route' => ['DataKelurahans.update', $kelurahan->id], 'method' => 'PATCH']) !!}
-    @include('kelurahans.form')
+  {!! Form::model($dataKelurahan, ['route' => ['data-kelurahan.update', $dataKelurahan->id], 'method' => 'PATCH']) !!}
+    @include('DataKelurahan.form')
   {!! Form::close() !!}
 
 </div>
