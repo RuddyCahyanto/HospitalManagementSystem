@@ -5,7 +5,7 @@
     <strong>Registrasi Pasien</strong>
   </div>
 
-  {{-- return to method store at KelurahansController while submit button clicked --}}
+  {{-- return to method store at RegistrasiPasienController while submit button clicked --}}
   {!! Form::open(['route' => 'registrasi-pasien.store']) !!}
     @include('RegistrasiPasien.form')
   {!! Form::close() !!}

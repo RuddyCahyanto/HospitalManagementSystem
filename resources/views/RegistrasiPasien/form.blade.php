@@ -22,9 +22,9 @@
      <div class="form-group">
        <label for="jns_kelamin">Jenis Kelamin:</label>
        <div class="radio">
-         <label>{!! Form::radio('jns_kelamin', 'Laki-laki', true) !!} Laki-laki </label>
+         <label>{!! Form::radio('jns_kelamin', 'Laki-laki') !!} Laki-laki </label>
          &nbsp
-         <label>{!! Form::radio('jns_kelamin', 'Perempuan', false) !!} Perempuan </label>
+         <label>{!! Form::radio('jns_kelamin', 'Perempuan') !!} Perempuan </label>
        </div>
      </div>
 
@@ -41,15 +41,15 @@
        {{ Form::number('rw', null, ['class' => 'form-control', 'placeholder' => 'Tanpa 0 di depan, contoh: 1']) }}
      </div>
      <div class="form-group">
-       <label for="kelurahan">Kelurahan:</label>
-       {!! Form::select('kelurahan_id', App\Model\Kelurahan::orderBy('nama_kelurahan', 'asc')->pluck('nama_kelurahan', 'id'), null, ['class' => 'form-control']) !!}
+       <label for="kelurahan_id">Kelurahan:</label>
+       {!! Form::select('kelurahan_id', $dataKelurahans, null, ['class' => 'form-control', 'id' => 'kelurahan_id']) !!}
      </div>
      <div class="form-group">
-       <label for="no_telepon">Nomor Telepon/HP</label>
-       {{ Form::number('no_telepon', null, ['class' => 'form-control', 'id' => 'no_telepon', 'placeholder' => '08xxxxxxxxxx']) }}
+       <label for="telepon">Nomor Telepon/HP</label>
+       {{ Form::number('telepon', null, ['class' => 'form-control', 'id' => 'telepon', 'placeholder' => '08xxxxxxxxxx']) }}
      </div>
 
-     <button type="submit" class="btn btn-primary">{{ ! empty($kelurahan->id) ? "Update" : "Submit" }}</button>
+     <button type="submit" class="btn btn-primary">Submit</button>
 
    </div>
 

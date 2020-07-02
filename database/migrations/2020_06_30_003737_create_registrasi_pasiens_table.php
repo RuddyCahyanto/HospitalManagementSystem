@@ -18,7 +18,7 @@ class CreateRegistrasiPasiensTable extends Migration
             $table->integer('kelurahan_id')->unsigned();
             $table->string('nama');
             $table->string('alamat');
-            $table->integer('telepon');
+            $table->char('telepon', 15);
             $table->integer('rt');
             $table->integer('rw');
             $table->date('tgl_lahir');

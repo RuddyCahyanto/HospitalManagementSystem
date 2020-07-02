@@ -1,12 +1,23 @@
 <?php
 
-namespace App\RegistrasiPasien\Models;
+namespace App\Domain\RegistrasiPasien\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Domain\DataKelurahan\Models\DataKelurahan;
 
 class RegistrasiPasien extends Model
 {
-    public function DataKelurahan(){
+    protected $fillable = [
+      'nama',
+      'alamat',
+      'telepon',
+      'rt',
+      'rw',
+      'tgl_lahir',
+      'jenis_kelamin'
+    ];
+
+    public function dataKelurahans(){
       $this->belongsTo('DataKelurahan');
     }
 }
