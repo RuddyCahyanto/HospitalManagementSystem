@@ -32,16 +32,41 @@
     </nav>
 
     <div class="container">
-      <div class="col align-self-center">
-        {{-- if there is saved message in session, return the message to the screen --}}
-        @if (session('message'))
-          <div class="alert alert-success">
-            {{ session('message') }}
-          </div>
-        @endif
 
-        {{-- content section --}}
-        @yield('content')
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              Home
+              <span class="badge"></span>
+            </a>
+            <a href="#" class="list-group-item">
+              Data User
+              <span class="badge">{{ App\Domain\Users\Models\User::count() }}</span>
+            </a>
+            <a href="#" class="list-group-item">
+              Data Kelurahan
+              <span class="badge">{{ App\Domain\DataKelurahan\Models\DataKelurahan::count() }}</span>
+            </a>
+            <a href="#" class="list-group-item">
+              Data Pasien
+              <span class="badge">{{ App\Domain\RegistrasiPasien\Models\RegistrasiPasien::count() }}</span>
+            </a>
+
+          </div>
+        </div><!-- /.col-md-3 -->
+
+        <div class="col-md-9">
+          {{-- if there is saved message in session, return the message to the screen --}}
+          @if (session('message'))
+            <div class="alert alert-success">
+              {{ session('message') }}
+            </div>
+          @endif
+
+          {{-- content section --}}
+          @yield('content')
+        </div>
       </div>
     </div>
 
