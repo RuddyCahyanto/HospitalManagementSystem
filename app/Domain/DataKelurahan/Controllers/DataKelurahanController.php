@@ -8,6 +8,16 @@ use App\Domain\DataKelurahan\Models\DataKelurahan;
 
 class DataKelurahanController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     private $limit = 5;
 
     // must be fill

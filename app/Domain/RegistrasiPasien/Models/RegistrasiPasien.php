@@ -17,7 +17,7 @@ class RegistrasiPasien extends Model
       'jenis_kelamin'
     ];
 
-    public function dataKelurahans(){
-      $this->belongsTo('DataKelurahan');
+    public function kelurahan(){
+      return $this->belongsTo(DataKelurahan::class, 'kelurahan_id');
     }
 }

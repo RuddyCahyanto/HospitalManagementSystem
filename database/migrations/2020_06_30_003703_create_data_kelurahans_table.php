@@ -14,7 +14,7 @@ class CreateDataKelurahansTable extends Migration
     public function up()
     {
         Schema::create('data_kelurahans', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->increments('id');
             $table->string('nama_kelurahan');
             $table->string('nama_kecamatan');
             $table->string('nama_kota');

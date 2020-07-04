@@ -10,6 +10,16 @@ use Carbon\Carbon;
 
 class RegistrasiPasienController extends Controller{
 
+  /**
+   * Create a new controller instance.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
   private $rules = [
     'nama' => ['required'],
     'alamat' => ['required'],
@@ -21,6 +31,11 @@ class RegistrasiPasienController extends Controller{
   ];
 
   public function index(){
+    $pasiens = RegistrasiPasien::orderBy('id', 'desc')->paginate(5);
+    return view('DataPasien.index', ['pasiens' => $pasiens]);
+  }
+
+  public function create(){
     $dataKelurahans = DataKelurahan::orderBy('nama_kelurahan')->pluck('nama_kelurahan', 'id');
     return view('RegistrasiPasien.create', ['dataKelurahans' => $dataKelurahans]);
   }
@@ -34,13 +49,13 @@ class RegistrasiPasienController extends Controller{
     //INSERT TO DB
     $pasien = new RegistrasiPasien;
     //SET ID PASIEN TO YYMMxxxxxx FORMAT
-    //get last pasien id
-    $lastPasienId = RegistrasiPasien::orderBy('id','desc')->first()->id;
+    //get last pasien record
+    $lastPasienId = RegistrasiPasien::orderBy('id','desc')->first();
     if($lastPasienId == null){
       $pasien->id = ( date('ym') * 1000000 ) + 1;
     }
     else{
-      $pasien->id = (int) $lastPasienId + 1;
+      $pasien->id = $lastPasienId->id + 1; //$lastPasienId->id is getting the last record id
     }
     $pasien->kelurahan_id = $request->kelurahan_id;
     $pasien->nama = $request->nama;
@@ -53,5 +68,9 @@ class RegistrasiPasienController extends Controller{
     $pasien->save();
 
     return redirect('registrasi-pasien')->with('message', 'Berhasil disimpan!');
+  }
+
+  public function edit($id){
+
   }
 }

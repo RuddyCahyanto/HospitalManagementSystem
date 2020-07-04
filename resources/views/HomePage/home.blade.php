@@ -7,7 +7,7 @@
 
   <div class="panel-body">
     <strong>Selamat Datang!</strong>
-    <h2>Anda login sebagai Admin.</h2>
+    <h2>Anda login sebagai {{ Auth::user()->role }}.</h2>
   </div>
 </div>
 
