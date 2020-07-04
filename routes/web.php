@@ -17,5 +17,6 @@ Route::get('/home', function () {
     return view('HomePage.home');
 });
 
+Route::resource('users', 'Users\Controllers\UsersController');
 Route::resource('data-kelurahan', 'DataKelurahan\Controllers\DataKelurahanController');
 Route::resource('registrasi-pasien', 'RegistrasiPasien\Controllers\RegistrasiPasienController');

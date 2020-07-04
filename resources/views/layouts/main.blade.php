@@ -36,19 +36,19 @@
       <div class="row">
         <div class="col-md-3">
           <div class="list-group">
-            <a href="#" class="list-group-item active">
+            <a href="\home" class="list-group-item active">
               Home
               <span class="badge"></span>
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ route('users.index') }}" class="list-group-item">
               Data User
               <span class="badge">{{ App\Domain\Users\Models\User::count() }}</span>
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ route('data-kelurahan.index') }}" class="list-group-item">
               Data Kelurahan
               <span class="badge">{{ App\Domain\DataKelurahan\Models\DataKelurahan::count() }}</span>
             </a>
-            <a href="#" class="list-group-item">
+            <a href="{{ route('registrasi-pasien.index') }}" class="list-group-item">
               Data Pasien
               <span class="badge">{{ App\Domain\RegistrasiPasien\Models\RegistrasiPasien::count() }}</span>
             </a>
