@@ -67,10 +67,15 @@ class RegistrasiPasienController extends Controller{
     $pasien->jenis_kelamin = $request->jns_kelamin;
     $pasien->save();
 
-    return redirect('registrasi-pasien')->with('message', 'Berhasil disimpan!');
+    return redirect('data-pasien')->with('message', 'Berhasil disimpan!');
   }
 
   public function edit($id){
 
   }
+
+  // public function printIdCard($id){
+  //   $pasien = RegistrasiPasien::find($id);
+  //   return view('DataPasien.index')
+  // }
 }

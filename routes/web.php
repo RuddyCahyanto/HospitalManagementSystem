@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/home', function () {
-//     return view('HomePage.home');
-// });
+Route::get('/', 'HomePage\Controllers\HomeController@index')->name('home');
 
 Route::resource('users', 'Users\Controllers\UsersController');
 

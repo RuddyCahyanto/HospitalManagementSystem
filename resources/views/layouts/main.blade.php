@@ -11,13 +11,15 @@
     <title>SIMRS</title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
@@ -66,29 +68,28 @@
       <div class="row">
         <div class="col-md-3">
           <div class="list-group">
-            <a href="\home" class="list-group-item active">
+            <a href="\home" class="list-group-item {{ request()->is('home') ? 'active' : '' }}">
               Home
               <span class="badge"></span>
             </a>
             @can('isAdmin')
-              <a href="{{ route('users.index') }}" class="list-group-item">
+              <a href="{{ route('users.index') }}" class="{{ (request()->segment(1) == 'users') ? 'active' : '' }} list-group-item">
                 Data User
                 <span class="badge">{{ App\Domain\Users\Models\User::count() }}</span>
               </a>
-              <a href="{{ route('data-kelurahan.index') }}" class="list-group-item">
+              <a href="{{ route('data-kelurahan.index') }}" class="{{ (request()->segment(1) == 'data-kelurahan') ? 'active' : '' }} list-group-item">
                 Data Kelurahan
                 <span class="badge">{{ App\Domain\DataKelurahan\Models\DataKelurahan::count() }}</span>
               </a>
-              <a href="{{ route('data-pasien') }}" class="list-group-item">
+              <a href="{{ route('data-pasien') }}" class="{{ (request()->segment(1) == 'data-pasien' ) ? 'active' : '' }} list-group-item">
                 Data Pasien
                 <span class="badge">{{ App\Domain\RegistrasiPasien\Models\RegistrasiPasien::count() }}</span>
               </a>
             @elsecan('isOperator')
-              <a href="{{ route('registrasi-pasien.create') }}" class="list-group-item">
+              <a href="{{ route('registrasi-pasien.create') }}" class="{{ (request()->segment(1) == 'registrasi-pasien') ? 'active' : '' }} list-group-item">
                 Registrasi Pasien
-                <span class="badge">{{ App\Domain\RegistrasiPasien\Models\RegistrasiPasien::count() }}</span>
               </a>
-              <a href="{{ route('data-pasien') }}" class="list-group-item">
+              <a href="{{ route('data-pasien') }}" class="{{ (request()->segment(1) == 'data-pasien') ? 'active' : '' }} list-group-item">
                 Data Pasien
                 <span class="badge">{{ App\Domain\RegistrasiPasien\Models\RegistrasiPasien::count() }}</span>
               </a>
@@ -111,21 +112,5 @@
       </div>
     </div>
 
-
-
-    {{-- <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/assets/js/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/jasny-bootstrap.min.js"></script>
-    <script>
-    $("#add-new-group").hide();
-    $('#add-group-btn').click(function () {
-      $("#add-new-group").slideToggle(function() {
-        $('#new_group').focus();
-      });
-      return false;
-    });
-    </script> --}}
   </body>
 </html>

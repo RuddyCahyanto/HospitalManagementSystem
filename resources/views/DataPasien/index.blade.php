@@ -49,7 +49,7 @@
                       <i class="glyphicon glyphicon-remove"></i>
                     </button>
                   @elsecan('isOperator')
-                    <button onclick="return confirm('Apakah Anda yakin?');" type="submit" class="btn btn-circle btn-danger btn-xs" title="Cetak Kartu Pasien">
+                    <button data-toggle="modal" data-target="#idCardModal" type="button" class="btn btn-circle btn-danger btn-xs" title="Cetak Kartu Pasien">
                       <i class="glyphicon glyphicon-print"></i>
                     </button>
                   @endcan
@@ -61,6 +61,9 @@
       </tbody>
     </table>
   </div>
+
+  @include('RegistrasiPasien.id-card')
+
 </div>
 
 {{-- pagination --}}
